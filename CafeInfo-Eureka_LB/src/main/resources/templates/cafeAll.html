@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http:thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Cafe Info and Review Details</title>
+</head>
+<body>
+	<h1>Cafe Info and Review Details</h1>
+	<div th:object="${cafeInfo}">
+		Cafe Id:<span th:text="${#object.cafeId}"></span><br>
+		Cafe Name:<span th:text="${#object.cafeName}"></span><br>
+		Cafe Desc:<span th:text="${#object.cafeDesc}"></span><br>
+	</div>
+	<table border="1">
+		<tr>
+			<th>ReviewId</th>
+			<th>CafeId</th>
+			<th>CafeRating</th>
+			<th>CafeRemarks</th>
+		</tr>
+		<tr th:each="obj: ${cafeReviewList}">
+			<td th:text= "${obj.reviewId}"></td>
+			<td th:text="${obj.cafeId}"></td>
+			<td th:text="${obj.cafeRating}"></td>
+			<td th:text="${obj.cafeRemarks}"></td>
+		</tr>
+	</table>
+</body>
+</html>
